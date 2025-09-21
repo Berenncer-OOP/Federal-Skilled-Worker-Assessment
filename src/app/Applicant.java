@@ -134,6 +134,147 @@ public class Applicant {
 		return languageScore;		
 	}
 	
+<<<<<<< HEAD
 	
+	
+=======
+>>>>>>> branch 'main' of git@github.com:Berenncer-OOP/Federal-Skilled-Worker-Assessment.git
+	
+	public int scoreLanguageSkills() {
+		int languageScore = 0;
+		if (this.speak == 7) {
+			languageScore += 4;
+		}
+		else if (this.speak == 8) {
+			languageScore += 5;
+		}
+		else if (this.speak >= 9) {
+			languageScore += 6;
+		}
+		else {
+			languageScore += 0;
+		}
+		
+		if (this.listen == 7) {
+			languageScore += 4;
+		}
+		else if (this.listen == 8) {
+			languageScore += 5;
+		}
+		else if (this.listen >= 9) {
+			languageScore += 6;
+		}
+		else {
+			languageScore += 0;
+		}
+		
+		if (this.read == 7) {
+			languageScore += 4;
+		}
+		else if (this.read == 8) {
+			languageScore += 5;
+		}
+		else if (this.read >= 9) {
+			languageScore += 6;
+		}
+		else {
+			languageScore += 0;
+		}
+		
+		if (this.write == 7) {
+			languageScore += 4;
+		}
+		else if (this.write == 8) {
+			languageScore += 5;
+		}
+		else if (this.write >= 9) {
+			languageScore += 6;
+		}
+		else {
+			languageScore += 0;
+		}
+		
+		//secondary language
+		
+		if (this.minimumCLB == true) {
+			languageScore += 4;
+		}
+		else {
+			languageScore += 0;
+		}
+		
+		
+		System.out.println(languageScore);
+		return languageScore;		
+	}
+	
+	
+	public int scoreLanguageSkills() {
+		int languageScore = 0;
+		if (this.speak == 7) {
+			languageScore += 4;
+		}
+		else if (this.speak == 8) {
+			languageScore += 5;
+		}
+		else if (this.speak >= 9) {
+			languageScore += 6;
+		}
+		else {
+			languageScore += 0;
+		}
+		
+		if (this.listen == 7) {
+			languageScore += 4;
+		}
+		else if (this.listen == 8) {
+			languageScore += 5;
+		}
+		else if (this.listen >= 9) {
+			languageScore += 6;
+		}
+		else {
+			languageScore += 0;
+		}
+		
+		if (this.read == 7) {
+			languageScore += 4;
+		}
+		else if (this.read == 8) {
+			languageScore += 5;
+		}
+		else if (this.read >= 9) {
+			languageScore += 6;
+		}
+		else {
+			languageScore += 0;
+		}
+		
+		if (this.write == 7) {
+			languageScore += 4;
+		}
+		else if (this.write == 8) {
+			languageScore += 5;
+		}
+		else if (this.write >= 9) {
+			languageScore += 6;
+		}
+		else {
+			languageScore += 0;
+		}
+		
+		//secondary language
+		
+		if (this.minimumCLB == true) {
+			languageScore += 4;
+		}
+		else {
+			languageScore += 0;
+		}
+		
+		
+		System.out.println(languageScore);
+		return languageScore;		
+	}
 	
 }
