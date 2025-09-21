@@ -22,42 +22,47 @@ public class Applicant {
 	private int workExperience; //years
 	private boolean arrangedEmployment;
 	
-	private boolean spouseLanguage;
-	private boolean spouseEducation;
-	private boolean spouseWork;
+	private boolean spouseAdaptabilityLanguage;
+	private boolean spouseAdaptabilityEducation;
+	private boolean spouseAdaptabilityWork;
 	
 	private boolean adaptabilityEducation;
 	private boolean adaptabilityWork;
 	private boolean adaptabilityEmployment;
-	private boolean relatives;
+	private boolean adaptabilityRelatives;
 	
-	private int applicantScore;
+	private int score = 0;
 
+	//testing a different method of reading data to the fields
 	public Applicant(String applicantLine) {
-	    
-	}
-	public void fillData(int temp, String currToken) {
-	    switch(temp) {
-	    case 0:
-	        this.firstName = currToken;
-	        System.out.println(this.firstName);
-	        break;
-	    case 1:
-	    	this.lastName = currToken;
-	        break;
-	    case 2:
-	        this.age = Integer.parseInt(currToken);
-	    case 3:
-	    	this.maritalStatus = Integer.parseInt(currToken)
-	    }
-	}
-	public void addAppData(String tmpString) {
-	    Scanner strReader = new Scanner(tmpString);
-	    String currToken;
-	    for(int i = 0; i <= 18; i++) {
-	        fillData(i, strReader.next());
-	    }
-	}
+		//separate String applicantLine into list
+		String[] applicantArray = applicantLine.split("\t");
+		//System.out.println(applicantArray[17]);
+		this.firstName = applicantArray[0];
+		this.lastName = applicantArray[1];
+		System.out.println(this.firstName + " " + this.lastName);
+		this.age = Integer.parseInt(applicantArray[2]);
+		this.maritalStatus = ConvertToBoolean.convert(applicantArray[3]);
+		
+		this.speak = Integer.parseInt(applicantArray[4]);
+		this.listen = Integer.parseInt(applicantArray[5]);
+		this.read = Integer.parseInt(applicantArray[6]);
+		this.write = Integer.parseInt(applicantArray[7]);
+		this.minimumCLB = ConvertToBoolean.convert(applicantArray[8]);
+		
+		this.education = applicantArray[9];
+		this.workExperience = Integer.parseInt(applicantArray[10]); 
+		this.arrangedEmployment = ConvertToBoolean.convert(applicantArray[11]);
+		
+		this.spouseAdaptabilityLanguage = ConvertToBoolean.convert(applicantArray[12]);
+		this.spouseAdaptabilityEducation = ConvertToBoolean.convert(applicantArray[13]);
+		this.spouseAdaptabilityWork = ConvertToBoolean.convert(applicantArray[14]);
+		
+		this.adaptabilityEducation = ConvertToBoolean.convert(applicantArray[15]);
+		this.adaptabilityWork = ConvertToBoolean.convert(applicantArray[16]);
+		this.adaptabilityEmployment = ConvertToBoolean.convert(applicantArray[17]);
+		this.adaptabilityRelatives = ConvertToBoolean.convert(applicantArray[18]);
+		}
 	
 //methods: ???
 	//getFirstName
@@ -65,7 +70,7 @@ public class Applicant {
 	//getAge
 	//getScore
 	//setScore
-	
+
 	public int scoreLanguageSkills() {
 		int languageScore = 0;
 		if (this.speak == 7) {
@@ -128,153 +133,7 @@ public class Applicant {
 		else {
 			languageScore += 0;
 		}
-		
-		
-		System.out.println(languageScore);
 		return languageScore;		
 	}
-	
-<<<<<<< HEAD
-	
-	
-=======
->>>>>>> branch 'main' of git@github.com:Berenncer-OOP/Federal-Skilled-Worker-Assessment.git
-	
-	public int scoreLanguageSkills() {
-		int languageScore = 0;
-		if (this.speak == 7) {
-			languageScore += 4;
-		}
-		else if (this.speak == 8) {
-			languageScore += 5;
-		}
-		else if (this.speak >= 9) {
-			languageScore += 6;
-		}
-		else {
-			languageScore += 0;
-		}
-		
-		if (this.listen == 7) {
-			languageScore += 4;
-		}
-		else if (this.listen == 8) {
-			languageScore += 5;
-		}
-		else if (this.listen >= 9) {
-			languageScore += 6;
-		}
-		else {
-			languageScore += 0;
-		}
-		
-		if (this.read == 7) {
-			languageScore += 4;
-		}
-		else if (this.read == 8) {
-			languageScore += 5;
-		}
-		else if (this.read >= 9) {
-			languageScore += 6;
-		}
-		else {
-			languageScore += 0;
-		}
-		
-		if (this.write == 7) {
-			languageScore += 4;
-		}
-		else if (this.write == 8) {
-			languageScore += 5;
-		}
-		else if (this.write >= 9) {
-			languageScore += 6;
-		}
-		else {
-			languageScore += 0;
-		}
-		
-		//secondary language
-		
-		if (this.minimumCLB == true) {
-			languageScore += 4;
-		}
-		else {
-			languageScore += 0;
-		}
-		
-		
-		System.out.println(languageScore);
-		return languageScore;		
-	}
-	
-	
-	public int scoreLanguageSkills() {
-		int languageScore = 0;
-		if (this.speak == 7) {
-			languageScore += 4;
-		}
-		else if (this.speak == 8) {
-			languageScore += 5;
-		}
-		else if (this.speak >= 9) {
-			languageScore += 6;
-		}
-		else {
-			languageScore += 0;
-		}
-		
-		if (this.listen == 7) {
-			languageScore += 4;
-		}
-		else if (this.listen == 8) {
-			languageScore += 5;
-		}
-		else if (this.listen >= 9) {
-			languageScore += 6;
-		}
-		else {
-			languageScore += 0;
-		}
-		
-		if (this.read == 7) {
-			languageScore += 4;
-		}
-		else if (this.read == 8) {
-			languageScore += 5;
-		}
-		else if (this.read >= 9) {
-			languageScore += 6;
-		}
-		else {
-			languageScore += 0;
-		}
-		
-		if (this.write == 7) {
-			languageScore += 4;
-		}
-		else if (this.write == 8) {
-			languageScore += 5;
-		}
-		else if (this.write >= 9) {
-			languageScore += 6;
-		}
-		else {
-			languageScore += 0;
-		}
-		
-		//secondary language
-		
-		if (this.minimumCLB == true) {
-			languageScore += 4;
-		}
-		else {
-			languageScore += 0;
-		}
-		
-		
-		System.out.println(languageScore);
-		return languageScore;		
-	}
-	
+
 }
