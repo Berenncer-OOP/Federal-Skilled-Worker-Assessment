@@ -31,11 +31,9 @@ public class Applicant {
 	
 	private int score = 0;
 
-	//testing a different method of reading data to the fields
 	public Applicant(String applicantLine) {
 		//separate String applicantLine into list
 		String[] applicantArray = applicantLine.split("\t");
-		//System.out.println(applicantArray[17]);
 		this.firstName = applicantArray[0];
 		this.lastName = applicantArray[1];
 		System.out.println(this.firstName + " " + this.lastName);
@@ -62,19 +60,23 @@ public class Applicant {
 		this.adaptabilityRelatives = ConvertToBoolean.convert(applicantArray[18]);
 		}
 	
-//methods: ???
-	//getFirstName
-	//getLastName
-	//getAge
-	//getScore
-	//setScore
+/**getter Methods Are Available For firstName, lastName, age, score fields.*/
+	public String getFirstName() {
+		return this.firstName;
+	}
+	public String getLastName() { 
+		return this.lastName;
+	}
+	public int getAge() {
+		return this.age;
+	}
 	public int getScore() {
-		return score;
+		return this.score;
 	}
 
 
 	public void scoreTotal() {
-		/**scoreTotal() method calls all other scoring methods and adds their return values to assign the resulting int to this.score*/
+		/**scoreTotal() method calls all other scoring methods and adds their return values to assign the resulting integer to this.score*/
 		int total = scoreLanguageSkills()+scoreEducation()+scoreWorkExperience()+scoreAge()+scoreEmployment()+scoreAdaptability();
 		this.score = total;
 	}
@@ -146,28 +148,28 @@ public class Applicant {
 	public int scoreEducation() {
 		/**scores highest level of education applicant has achieved. max 25 points*/
 		int educationScore = 0;
-		//if-elif should be based on value of this.education str
+		//INCOMPLETE: if-elif should be based on value of this.education str
 		
 		return educationScore;
 	}
 	public int scoreWorkExperience() {
 		/**scores applicant's years of work experience. max 15 points*/
 		int workExperienceScore = 0;
-		//if-elif should be based on value of this.workExperience int
+		//INCOMPLETE: if-elif should be based on value of this.workExperience int
 		
 		return workExperienceScore;
 	}
 	public int scoreAge() {
 		/**scores applicant's age. max 12 points*/
 		int ageScore = 0;
-		//if-elif should be based on value of this.Age int
+		//INCOMPLETE: if-elif should be based on value of this.Age int
 		
 		return ageScore;
 	}
 	public int scoreEmployment() {
 		/**scores whether or not applicant has employment arranged in Canada. max 10 points*/
 		int employmentScore = 0;
-		//if-elif should be based on value of this.arrangedEmployment bool
+		//INCOMPLETE: if-elif should be based on value of this.arrangedEmployment bool
 		
 		return employmentScore;
 	}
@@ -175,7 +177,38 @@ public class Applicant {
 		/**score presumed adaptability of applicant and applicant's family to life in Canada. max 10 points*/
 		int adaptabilityScore = 0;
 		//should be based on value of all adaptability-related items. should loop while adaptabilityScore<10 and stop when all adaptability-related items have been checked.
-		
+			if (this.adaptabilityEducation == true) {
+				adaptabilityScore += 5;
+			}
+			
+			if (this.adaptabilityWork == true) {
+				adaptabilityScore += 10;
+			}
+			
+			if (this.adaptabilityEmployment == true) {
+				adaptabilityScore += 5;
+			}
+			
+			if (this.adaptabilityRelatives == true) {
+				adaptabilityScore += 5;
+			}
+			if (this.maritalStatus == true) {
+				if (this.spouseAdaptabilityLanguage == true) {
+					adaptabilityScore += 5;
+				}
+				
+				if (this.spouseAdaptabilityEducation == true) {
+					adaptabilityScore += 5;
+				}
+				if (this.spouseAdaptabilityWork == true) {
+					adaptabilityScore += 5;
+				}
+			}
+			if (adaptabilityScore > 10) {
+				//necessary because max adaptability score is 10
+				adaptabilityScore = 10;
+			}
+			System.out.println(adaptabilityScore);
 		return adaptabilityScore;
 	}
 
