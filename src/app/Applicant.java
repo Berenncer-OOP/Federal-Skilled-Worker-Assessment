@@ -1,7 +1,5 @@
 package app;
 
-import java.util.Scanner;
-
 public class Applicant {
 //fields: all applicant data
 //first_name	last_name	age	marital_status	speak_1	listen_1	read_1	write_1	all_2	education	work_experience	arranged_employment	adaptability_spouse_language	adaptability_spouse_education	adaptability_spouse_work	adaptability_you_education	adaptability_you_work	adaptability_you_employment	adaptability_relatives
@@ -70,8 +68,19 @@ public class Applicant {
 	//getAge
 	//getScore
 	//setScore
+	public int getScore() {
+		return score;
+	}
 
+
+	public void scoreTotal() {
+		/**scoreTotal() method calls all other scoring methods and adds their return values to assign the resulting int to this.score*/
+		int total = scoreLanguageSkills()+scoreEducation()+scoreWorkExperience()+scoreAge()+scoreEmployment()+scoreAdaptability();
+		this.score = total;
+	}
+	
 	public int scoreLanguageSkills() {
+		/**scores applicant language skills. max 28 points.*/
 		int languageScore = 0;
 		if (this.speak == 7) {
 			languageScore += 4;
@@ -126,7 +135,6 @@ public class Applicant {
 		}
 		
 		//secondary language
-		
 		if (this.minimumCLB == true) {
 			languageScore += 4;
 		}
@@ -134,6 +142,41 @@ public class Applicant {
 			languageScore += 0;
 		}
 		return languageScore;		
+	}
+	public int scoreEducation() {
+		/**scores highest level of education applicant has achieved. max 25 points*/
+		int educationScore = 0;
+		//if-elif should be based on value of this.education str
+		
+		return educationScore;
+	}
+	public int scoreWorkExperience() {
+		/**scores applicant's years of work experience. max 15 points*/
+		int workExperienceScore = 0;
+		//if-elif should be based on value of this.workExperience int
+		
+		return workExperienceScore;
+	}
+	public int scoreAge() {
+		/**scores applicant's age. max 12 points*/
+		int ageScore = 0;
+		//if-elif should be based on value of this.Age int
+		
+		return ageScore;
+	}
+	public int scoreEmployment() {
+		/**scores whether or not applicant has employment arranged in Canada. max 10 points*/
+		int employmentScore = 0;
+		//if-elif should be based on value of this.arrangedEmployment bool
+		
+		return employmentScore;
+	}
+	public int scoreAdaptability() {
+		/**score presumed adaptability of applicant and applicant's family to life in Canada. max 10 points*/
+		int adaptabilityScore = 0;
+		//should be based on value of all adaptability-related items. should loop while adaptabilityScore<10 and stop when all adaptability-related items have been checked.
+		
+		return adaptabilityScore;
 	}
 
 }

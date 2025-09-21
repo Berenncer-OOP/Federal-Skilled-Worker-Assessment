@@ -26,7 +26,9 @@ public class AppDriver {
         while (fInput.hasNext()) {
             String applicantLine = new String(fInput.nextLine());
             Applicant currentApplicant = new Applicant(applicantLine);
-            
+            currentApplicant.scoreTotal();
+            //System.out.println(currentApplicant.getScore());
+            // if statement for if currentApplicant.score is >=threshold
             
             }
         
