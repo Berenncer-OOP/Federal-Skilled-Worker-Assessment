@@ -9,21 +9,25 @@ public class AppDriver {
     public static void main(String[] args) throws FileNotFoundException {
         
         Scanner kInput = new Scanner(System.in);
-        String filePath = new String();
         ArrayList<String> workerData = new ArrayList<String>();
         
-        String inputFilePath = "/data/input/";
-        String outputFilePath = "/date/output/";
+        //String inputFilePath = "/data/input/";
+        //String outputFilePath = "/data/output/";
         
-        System.out.println("Please provide the name of the input file (to be located in" + inputFilePath + "): ");
-        filePath = kInput.next();
+        System.out.println("Please provide the name of the input file (to be located in): ");
+        String filePath = kInput.next();
         File workerFile = new File(filePath);
         Scanner fInput = new Scanner(workerFile);
         
         while (fInput.hasNext()) {
             String applicantLine = new String(fInput.nextLine());
+            //System.out.println(applicantLine);
             Applicant currentApplicant = new Applicant(applicantLine);
-            
+            currentApplicant.scoreLanguageSkills();
             }
-
+        
+        fInput.close();
+        kInput.close();
+    }
 }
+    
